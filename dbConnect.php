@@ -24,15 +24,19 @@
             $password = $_POST['pw'];
             $check = $_POST['check'];
 
+            // db접속을 위한 변수
             $dbc = mysqli_connect('localhost','u733252017_logae','a5695938','u733252017_mydb')
             or die('데이터베이스에 연결이 안되었습니다.');
 
+            // sql쿼리를 위한 변수
             $query ="INSERT INTO test(`email`,`pw`,`Check`)".
             "VALUES('$email','$password','$check')";
 
+            //쿼리를 실행하여 변수에 저장
             $result = mysqli_query($dbc,$query)
             or die('쿼리 오류');
 
+            //접속 해제
             mysqli_close($dbc);
 
             echo 'email = '.$email.'<br>';

@@ -25,6 +25,7 @@
 
             if(isset($_POST['submit'])){
                 if(isset($_POST['todelete'])){
+                    // foreach로 배열을 나열
                     foreach($_POST['todelete'] as $delete_id){
 
                         $query = "DELETE FROM test WHERE Id = $delete_id";
@@ -32,6 +33,8 @@
                         or die('쿼리 오류');
 
                     }
+
+                    //끊어서 사용하면 html과 호환할 수 있다.
                     ?>
                     <div class="text-center bg-primary">
                         <i class="glyphicon glyphicon-ok pull-left"></i> 정상처리되었습니다.
@@ -47,6 +50,8 @@
             }
         ?>
         <hr>
+
+        <!-- 스스로 참조하기 -->
         <form class="form-group" action="<?php echo $_SERVER['php_self'];?>" method="post">
             <?php
                 $query = "SELECT * FROM test"
@@ -54,6 +59,8 @@
                 $result = mysqli_query($dbc,$query);
 
                 while($row = mysqli_fetch_array($result)){
+
+                    // name에 할당되는 변수를 배열로 설정할 수 있다.
                     echo '<label for="'.'a'.$row['Id'].'"><input class="" type="checkbox" value="'.$row['Id'].'" name="todelete[]" id="'.'a'.$row['Id'].'" />&nbsp;';
                     echo $row['email'].'&nbsp;&nbsp;&nbsp;';
                     echo $row['pw'].'&nbsp;&nbsp;&nbsp;';

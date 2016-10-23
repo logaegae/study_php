@@ -51,6 +51,7 @@
                         $result = mysqli_query($dbc,$query)
                         or die('쿼리 오류');
 
+                        // 레코드 하나씩 호출, while로 반복
                         while($row = mysqli_fetch_array($result)){
                             $id = $row['Id'];
                             $email = $row['email'];

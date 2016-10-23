@@ -23,6 +23,7 @@
             $from = "어디서 왔나";
             $cc = "참조인"
 
+            // 이메일 보내기 함수
             mail($addr, $sub, $msg);
         ?>
         <p class="bg-success text-center"><?php echo 이메일 전송 성공?></p>
