@@ -14,34 +14,21 @@
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
-
 <body>
     <div class="container">
-        <h1>Report</h1>
-        <hr>
         <?php
-            $email = $_POST['email'];
-            $password = $_POST['pw'];
-            $check = $_POST['check'];
+            $sub = $_POST['name'].'님이 메일을 보냈습니다.';
+            $addr = $_POST['sendEmail'];
+            $msg = $_POST['msg'];
+            $from = "어디서 왔나";
+            $cc = "참조인"
 
-            $dbc = mysqli_connect('localhost','u733252017_logae','a5695938','u733252017_mydb')
-            or die('데이터베이스에 연결이 안되었습니다.');
-
-            $query ="INSERT INTO test(`email`,`pw`,`Check`)".
-            "VALUES('$email','$password','$check')";
-
-            $result = mysqli_query($dbc,$query)
-            or die('쿼리 오류');
-
-            mysqli_close($dbc);
-
-            echo 'email = '.$email.'<br>';
-            echo 'password = '.$password.'<br>';
-            echo 'check = '.$check.'<br>';
-
-
+            mail($addr, $sub, $msg);
         ?>
+        <p class="bg-success text-center"><?php echo 이메일 전송 성공?></p>
+        <div class="text-center">
+            <a href="index.html" class="btn btn-primary">메인으로</a>
+        </div>
     </div>
 </body>
-
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">이메일보내기</h1>
+        <hr>
+        <form action="sendEmail.php" method="post">
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" name="name" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="sendEmail">보낼 이메일</label>
+                <input type="email" name="sendEmail" id="sendEmail" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="msg">메세지</label>
+                <textarea name="msg" id="msg" class="form-control" rows="6" required></textarea>
+            </div>
+            <div class="text-center">
+                <input type="submit" value="보내기" class="btn btn-primary">
+                <input type="reset" value="취소" class="btn btn-default">
+            </div>
+        </form>
+        <hr>
+        <div class="text-center">
+            <a href="index.html" class="btn btn-primary">메인으로</a>
+        </div>
+    </div>
+</body>
+</html>
