@@ -1,3 +1,6 @@
+<?php
+    require_once('./require/authorize.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -16,17 +19,74 @@
 </head>
 <body>
     <div class="container">
-        <?php
-            //어플리케이션 상수를 정의
-            require_once('appvars.php');
-            require_once('connectvars.php');
-            echo '<table>';
-            $i = 0;
-            while ($row = mysql_fetch_array($data)){
+        <br>
+        <br>
+        <table class="table table-striped">
+            <caption class="sr-only"></caption>
+            <colgroup>
+                <col width="10%"></col>
+                <col width="40%"></col>
+                <col width="30%"></col>
+                <col width="10%"></col>
+                <col width="10%"></col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        email
+                    </th>
+                    <th>
+                        password
+                    </th>
+                    <th>
+                        check
+                    </th>
+                    <th>
+                        link
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    //어플리케이션 상수를 정의
+                    require_once('./require/appvars.php');
+                    require_once('./require/connectvars.php');
 
-            }
-        ?>
+                    $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
+                    $query = 'SELECT * FROM test';
+                    $data = mysqli_query($dbc,$query);
+
+                    while($row = mysqli_fetch_array($data)){
+
+                        $id = $row['Id'];
+                        $email = $row['email'];
+                        $pw = $row['pw'];
+                        $check = $row['Check'];
+                        $attach = $row['attach'];
+                        $date = $row['date'];
+
+                        echo "<tr><td>";
+                        echo $id."</td><td>";
+                        echo $email."</td><td>";
+                        echo $pw."</td><td>";
+                        echo $check."</td><td>";
+                        echo $attach."</td>";
+                        echo "</tr>";
+
+                    }
+
+
+                    mysqli_close($dbc);
+
+                ?>
+            </tbody>
+
+
+        </table>
     </div>
 </body>
 </html>

@@ -1,3 +1,3 @@
 <?php
-    define('GW_UPLOADPATH','images/');
+    define('UPLOADPATH','images/');
 ?>

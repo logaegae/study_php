@@ -1,3 +1,6 @@
+<?php
+    require_once('./require/authorize.php');
+?>
 <!DOCTYPE html>
 <html>
 
