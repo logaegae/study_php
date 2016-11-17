@@ -30,10 +30,12 @@
             <br>
         </form>
             <?php
+                require_once('./require/connectvars.php');
                 if(isset($_POST['submit'])){
-                    $text = trim($_POST['text']);
+                    $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+                    $text = mysqli_real_escape_string($dbc, trim($_POST['text']));
                     echo '<textarea class="form-control" rows="5" id="text" name="text" readonly>'.$text.'</textarea>';
-                }
+                };
             ?>
         <div class="text-center">
             <br>
